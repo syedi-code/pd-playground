@@ -1,0 +1,20 @@
+#N canvas -8 -8 1920 997 12;
+#X obj 103 48 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 9000 1;
+#X obj 101 77 mtof;
+#X obj 101 116 osc~;
+#X obj 103 445 dac~;
+#X obj 102 346 *~;
+#X floatatom 149 309 5 0 0 0 - - -;
+#X text 244 56 frequency slider;
+#X obj 279 153 vsl 15 128 0 0.5 0 0 empty empty empty 0 -9 0 10 -258113
+-1 -1 0 1;
+#X text 319 218 volume slider;
+#X text 322 239 range: 0 to 0.5;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X connect 4 0 3 1;
+#X connect 5 0 4 1;
+#X connect 7 0 5 0;

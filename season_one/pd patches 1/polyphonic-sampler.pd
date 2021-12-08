@@ -1,0 +1,44 @@
+#N canvas 1979 117 1261 682 12;
+#X obj 43 481 soundfiler;
+#X floatatom 43 505 10 0 0 3 length_of_sample_in_samples - -;
+#X text 229 235 sends a message to soundfiler to read a file and resize
+the array to match the sample length;
+#X obj 43 192 openpanel;
+#X obj 44 551 s \$0-file_duration;
+#X text 52 24 all of this loads the sample;
+#X obj 254 146 array define \$0-sample_1;
+#X obj 43 290 list append \$0-sample_1;
+#X text 218 290 adds array name to any read messages coming in;
+#X obj 43 378 route list;
+#X text 125 378 removes the word "list" from outgoing message to soundfiler
+;
+#X msg 43 242 read -resize \$1;
+#X obj 140 169 inlet;
+#X obj 754 346 clone obj.samp-voice 8 \$0;
+#X msg 754 300 next \$1;
+#X obj 754 226 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 970 298 s \$0-playback_rate;
+#X floatatom 970 259 5 0 0 0 - - -;
+#X floatatom 754 261 5 0 0 0 - - -;
+#X obj 755 400 outlet~;
+#X obj 754 195 inlet;
+#X obj 970 193 inlet;
+#X obj 140 193 symbol;
+#X obj 755 370 *~ 0.25;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 3 0 11 0;
+#X connect 7 0 9 0;
+#X connect 9 0 0 0;
+#X connect 11 0 7 0;
+#X connect 12 0 22 0;
+#X connect 13 0 23 0;
+#X connect 14 0 13 0;
+#X connect 15 0 18 0;
+#X connect 17 0 16 0;
+#X connect 18 0 14 0;
+#X connect 20 0 15 0;
+#X connect 21 0 17 0;
+#X connect 22 0 11 0;
+#X connect 23 0 19 0;
