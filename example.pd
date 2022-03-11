@@ -1,0 +1,50 @@
+#N canvas 486 134 871 419 10;
+#X obj 295 236 pbank amore 21 64;
+#X msg 335 93 recall;
+#X text 479 34 file to read;
+#X msg 432 192 store;
+#X msg 264 33 read data/amore_channels.txt;
+#X text 451 65 line to read / write to buffer \; index starts at 0
+;
+#X obj 115 179 bng 15 250 50 0 empty empty empty 20 8 0 8 -262144 -1
+-1;
+#X obj 115 200 savepanel;
+#X msg 115 222 write \$1 br;
+#X obj 274 314 unpack f f s f f f f f f f f f f f f f f f s f s;
+#X floatatom 117 65 5 0 0 0 - - -;
+#X msg 394 68 2;
+#X obj 117 97 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 295 289 print data;
+#X obj 411 290 print line no. + data;
+#X text 159 66 output line immediately;
+#X text 140 97 output current line;
+#X floatatom 105 366 5 0 0 0 - - -;
+#X floatatom 146 366 5 0 0 0 - - -;
+#X symbolatom 196 366 10 0 0 0 - - -;
+#X symbolatom 559 353 10 0 0 0 - - -;
+#X text 412 93 recall line to buffer and output;
+#X text 513 191 store modified line from buffer to main store;
+#X text 14 182 write main \; store to file;
+#X msg 432 118 0 0.5;
+#X text 495 116 write ["index within line starting 0" "data"( \; to
+current buffer;
+#X msg 432 153 2 Hello;
+#X connect 0 0 13 0;
+#X connect 0 0 9 0;
+#X connect 0 1 14 0;
+#X connect 1 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 9 0 17 0;
+#X connect 9 1 18 0;
+#X connect 9 2 19 0;
+#X connect 9 20 20 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 1;
+#X connect 12 0 0 0;
+#X connect 24 0 0 0;
+#X connect 26 0 0 0;
